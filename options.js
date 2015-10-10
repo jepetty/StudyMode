@@ -1,25 +1,19 @@
-var defaultColor = "blue";
-
 function loadOptions() {
 	var forbiddenList = localStorage["forbiddenList"];
-
-	// valid colors are red, blue, green and yellow
+	console.log(forbiddenList,"forbidden");
 	if (forbiddenList) {
-		favColor = defaultColor;
-	}
-
-	var select = document.getElement();
-	for (var i = 0; i < select.children.length; i++) {
-		var child = select.children[i];
-			if (child.value == favColor) {
-			child.selected = "true";
-			break;
-		}
+		console.log("meh");
+		document.getElementById("facebook").checked = true;
 	}
 }
-
 function saveOptions() {
-	var select = document.getElement();
-	var URLs = select.children[select.selectedIndex].value;
-	localStorage["forbiddenList"] = URLs;
+	var fb=document.getElementById("facebook").checked;
+	if (fb==true){
+		localStorage["forbiddenList"]=true;
+		var fish= localStorage["forbiddenList"];
+		console.log(fish, "fishy fishy")
+	}
 }
+window.addEventListener('load', loadOptions);
+var button=document.getElementById('save');
+button.addEventListener('click',saveOptions);
