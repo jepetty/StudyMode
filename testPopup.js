@@ -42,9 +42,13 @@ function getCurrentTabUrl(callback) {
  */
 
 function compareURL() {
-  if (window.location.href.indexOf("facebook") > -1) {
-  alert("You have tried to access a forbidden site. You are now being redirected to a Judgy Rabbit. Stop slacking OFF!");
-  window.location=("http://1.bp.blogspot.com/-AKSZfnEBqrg/U1Cb_fe0jTI/AAAAAAAADmM/8giL1Zx0gBE/s1600/Lop-Eared-Pet-Rabbit.jpg")
-}
+	var badurl = ""
+	for () {
+		badurl = forbiddenList[i]
+		if (window.location.href.indexOf(badurl) > -1) {
+			alert("You have tried to access a forbidden site. You are now being redirected to a Judgy Rabbit. Stop slacking OFF!");
+			window.location=("http://1.bp.blogspot.com/-AKSZfnEBqrg/U1Cb_fe0jTI/AAAAAAAADmM/8giL1Zx0gBE/s1600/Lop-Eared-Pet-Rabbit.jpg")
+		}
+	}
 }
 compareURL();
