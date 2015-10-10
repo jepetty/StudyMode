@@ -4,6 +4,7 @@
 	"name": "Study Mode",
 	"description": "This extension will target when you try to access certain websites and display a popup telling you to try another site",
 	"version": "0.1",
+	
 	"content_scripts": [
 		{
 		"matches": ["<all_urls>"],
@@ -20,7 +21,6 @@
 		"128": "judgyRabbit128.png"},
 	
 	"permissions": [
-		"activeTab", 
-		"https://ajax.googleapis.com/"
+		"activeTab"
 	]
 }

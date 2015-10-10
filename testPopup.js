@@ -13,7 +13,6 @@ function getCurrentTabUrl(callback) {
     active: true,
     currentWindow: true
   };
-
   chrome.tabs.query(queryInfo, function(tabs) {
     var tab = tabs[0];
 
@@ -26,6 +25,9 @@ function getCurrentTabUrl(callback) {
     // from |queryInfo|), then the "tabs" permission is required to see their
     // "url" properties.
     console.assert(typeof url == 'string', 'tab.url should be a string');
+    if (url.indexOf("facebook") > -1) {
+      alert("Stop slacking OFF!")
+    }
 
     callback(url);
   });
@@ -52,4 +54,5 @@ function show_image(src, width, height, alt) {
     // This next line will just add it to the <body> tag
     document.body.appendChild(img);
 }
-alert("Stop Slacking OFF!!!!")
+getCurrentTabUrl("jessica");
+
