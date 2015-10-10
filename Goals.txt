@@ -1,0 +1,6 @@
+-Perform some functionality when forbidden websites are searched
+-Allow users to modify forbidden list
+-Implement both pop-up and redirect (choose favorite)
+	-Give user the option of which they want
+-Settings of app-> some way for user to modify
+-Allow user to add a specific redirect website
