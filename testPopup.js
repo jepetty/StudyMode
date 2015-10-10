@@ -42,8 +42,9 @@ function getCurrentTabUrl(callback) {
  */
 
 function compareURL() {
+	var forbiddenList = ["facebook", "twitter", "iwastesomuchtime", "reddit", "tumblr", "buzzfeed"]
 	var badurl = ""
-	for () {
+	for (i=0;i<forbiddenList.length;i++) {
 		badurl = forbiddenList[i]
 		if (window.location.href.indexOf(badurl) > -1) {
 			alert("You have tried to access a forbidden site. You are now being redirected to a Judgy Rabbit. Stop slacking OFF!");
