@@ -42,7 +42,7 @@ function getCurrentTabUrl(callback) {
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
-
+alert("Flying Monkey's Are Coming! Take shelter immediately")
 document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
     renderStatus('Popup activated on ' + url);
