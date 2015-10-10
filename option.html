@@ -1,45 +1,17 @@
 <html>
 <head>
-	<title>Forbidden Websites</title>
+	<title>Options for Color Chooser</title>
 	<script type="text/javascript" src="options.js"></script>
 </head>
 <body onload="loadOptions()">
-	<h2>Forbidden Websites</h2>
-	<label>
-		Facebook
-	<input id="facebook" type="checkbox">
-	</label><br />
-	<label>
-		Twitter
-	<input id="twitter" type="checkbox">
-	</label><br />
-	<label>
-		Reddit
-	<input id="reddit" type="checkbox">
-	</label><br />
-	<label>
-		Tumblr
-	<input id="tumblr" type="checkbox">
-	</label><br />
-	<label>
-		Netflix
-	<input id="netflix" type="checkbox">
-	</label><br />
-	<label>
-		Cracked
-	<input id="cracked" type="checkbox">
-	</label><br />
-	<label>
-		I Waste So Much Time
-	<input id="iwastesomuchtime" type="checkbox">
-	</label><br />
-	<label>
-		Pinterest
-	<input id="pinterest" type="checkbox">
-	</label>
+	<h1>Favorite Color</h1>
+	<select id="color">
+		<option value="blue">Blue</option>
+		<option value="red">Red</option>
+		<option value="green">Green</option>
+		<option value="yellow">Yellow</option>
+	</select>
 	<br />
 	<button onclick="saveOptions()">Save</button>
-	<br />
-	<button onclick="eraseOptions()">Restore default</button>
 </body>
 </html>

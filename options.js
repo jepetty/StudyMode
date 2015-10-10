@@ -1,14 +1,14 @@
 var defaultColor = "blue";
 
 function loadOptions() {
-	var favColor = localStorage["favColor"];
+	var forbiddenList = localStorage["forbiddenList"];
 
 	// valid colors are red, blue, green and yellow
-	if (favColor == undefined || (favColor != "red" && favColor != "blue" && favColor != "green" && favColor != "yellow")) {
+	if (forbiddenList) {
 		favColor = defaultColor;
 	}
 
-	var select = document.getElementById("color");
+	var select = document.getElement();
 	for (var i = 0; i < select.children.length; i++) {
 		var child = select.children[i];
 			if (child.value == favColor) {
@@ -19,12 +19,7 @@ function loadOptions() {
 }
 
 function saveOptions() {
-	var select = document.getElementById("color");
-	var color = select.children[select.selectedIndex].value;
-	localStorage["favColor"] = color;
-}
-
-function eraseOptions() {
-	localStorage.removeItem("favColor");
-	location.reload();
+	var select = document.getElement();
+	var URLs = select.children[select.selectedIndex].value;
+	localStorage["forbiddenList"] = URLs;
 }
