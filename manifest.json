@@ -5,15 +5,20 @@
 	"description": "This extension will target when you try to access certain websites and display a popup telling you to try another site",
 	"version": "0.1",
 	
-	"background": { 
-		"scripts": ["testPopup.js"]
-	},
-	
+	"content_scripts": [
+		{
+		"matches": ["<all_urls>"],
+		"js": ["testPopup.js"]
+		}
+		],
 	"browser_action": {
-		"default_icon": "judgyRabbit.png",
 		"default_popup": "popup.html",
 		"default_title": "Jess and Justin's extension!"
 	},
+	"icons": {
+		"16": "judgyRabbit16.png",
+		"48": "judgyRabbit48.png",
+		"128": "judgyRabbit128.png"},
 	
 	"permissions": [
 		"activeTab"

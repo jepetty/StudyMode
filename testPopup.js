@@ -13,7 +13,6 @@ function getCurrentTabUrl(callback) {
     active: true,
     currentWindow: true
   };
-
   chrome.tabs.query(queryInfo, function(tabs) {
     var tab = tabs[0];
 
@@ -26,6 +25,9 @@ function getCurrentTabUrl(callback) {
     // from |queryInfo|), then the "tabs" permission is required to see their
     // "url" properties.
     console.assert(typeof url == 'string', 'tab.url should be a string');
+    if (url.indexOf("facebook") > -1) {
+      alert("Stop slacking OFF!")
+    }
 
     callback(url);
   });
@@ -42,10 +44,4 @@ function getCurrentTabUrl(callback) {
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
-alert("Flying Monkey's Are Coming! Take shelter immediately")
-document.addEventListener('DOMContentLoaded', function() {
-  getCurrentTabUrl(function(url) {
-    renderStatus('Popup activated on ' + url);
-	alert("Flying Monkey's Are Coming! Take shelter immediately")
-  });
-});
+getCurrentTabUrl("jessica");
