@@ -45,6 +45,7 @@ function renderStatus(statusText) {
 
 document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
-    renderStatus('Performing Google Image search for ' + url);
+    renderStatus('Popup activated on ' + url);
+	alert("Flying Monkey's Are Coming! Take shelter immediately")
   });
 });
