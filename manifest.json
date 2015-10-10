@@ -6,10 +6,13 @@
 	"version": "0.1",
 	
 	"browser_action": {
-		"default_icon": "judgyRabbit.png",
 		"default_popup": "popup.html",
 		"default_title": "Jess and Justin's extension!"
 	},
+	"icons": {
+		"16": "judgyRabbit16.png",
+		"48": "judgyRabbit48.png",
+		"128": "judgyRabbit128.png"},
 	
 	"permissions": [
 		"activeTab", 
