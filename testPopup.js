@@ -41,5 +41,9 @@ function getCurrentTabUrl(callback) {
  *   The callback gets a string that describes the failure reason.
  */
 
-
-
+function compareURL() {
+  if (window.location.href.indexOf("facebook") > -1) {
+  alert("Stop slacking OFF!");
+}
+}
+compareURL();
