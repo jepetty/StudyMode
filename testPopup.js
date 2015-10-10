@@ -44,4 +44,10 @@ function getCurrentTabUrl(callback) {
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
-getCurrentTabUrl("jessica");
+
+function compareURL() {
+  if (window.location.href.indexOf("facebook") > -1) {
+  alert("Stop slacking OFF!");
+}
+}
+compareURL();
