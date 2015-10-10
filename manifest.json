@@ -1,14 +1,18 @@
 {
+	"manifest_version": 2,
+	
 	"name": "Study Mode",
 	"description": "This extension will target when you try to access certain websites and display a popup telling you to try another site",
 	"version": "0.1",
 	
 	"browser_action": {
-		"default_icon": "",
-		"default_popup": ""
+		"default_icon": "judgyRabbit.png",
+		"default_popup": "popup.html",
+		"default_title": "Jess and Justin's extension!"
 	},
 	
 	"permissions": [
-		"activeTab", "https://facebook.com/*"
+		"activeTab", 
+		"https://ajax.googleapis.com/"
 	]
 }
