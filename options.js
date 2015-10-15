@@ -1,6 +1,6 @@
 var forbiddenList = [];
 function updateList() {
-	var fb = localStorage["facebook"];
+	var fb = localStorage.getItem("facebook");
 	var tw = localStorage["twitter"];
 	var red= localStorage["reddit"];
 	var tmb= localStorage["tumblr"];
@@ -8,57 +8,64 @@ function updateList() {
 	var cr= localStorage["cracked"];
 	var iwsmt= localStorage["iwastesomuchtime"];
 	var pin= localStorage["pinterest"];
-	if (fb == 'true') {
-		forbiddenList["fb"]=true
+	var bzzf= localStorage["buzzfeed"];
+	if (fb == "true") {
+		forbiddenList["facebook"]=true
 	}
 	else {
-		forbiddenList["fb"]=false
+		forbiddenList["facebook"]=false
 	}
 	if (tw == 'true') {
-		forbiddenList["tw"]=true
+		forbiddenList["twitter"]=true
 	}
 	else {
-		forbiddenList["tw"]=false
+		forbiddenList["twitter"]=false
 	}
 	if (red == 'true') {
-		forbiddenList["red"]=true
+		forbiddenList["reddit"]=true
 	}
 	else {
-		forbiddenList["red"]=false
+		forbiddenList["reddit"]=false
 	}
 	if (tmb == 'true') {
-		forbiddenList["tmb"]=true
+		forbiddenList["tumblr"]=true
 	}
 	else {
-		forbiddenList["tmb"]=false
+		forbiddenList["tumblr"]=false
 	}
 	if (net == 'true') {
-		forbiddenList["net"]=true
+		forbiddenList["netflix"]=true
 	}
 	else {
-		forbiddenList["net"]=false
+		forbiddenList["netflix"]=false
 	}
 	if (cr == 'true') {
-		forbiddenList["cr"]=true
+		forbiddenList["cracked"]=true
 	}
 	else {
-		forbiddenList["cr"]=false
+		forbiddenList["cracked"]=false
 	}
 	if (iwsmt == 'true') {
-		forbiddenList["iwsmt"]=true
+		forbiddenList["iwastesomuchtime"]=true
 	}
 	else {
-		forbiddenList["iwsmt"]=false
+		forbiddenList["iwastesomuchtime"]=false
 	}
 	if (pin == 'true') {
-		forbiddenList["pin"]=true
+		forbiddenList["pinterest"]=true
 	}
 	else {
-		forbiddenList["pin"]=false
+		forbiddenList["pinterest"]=false
+	}
+	if (bzzf == 'true') {
+		forbiddenList["buzzfeed"]=true
+	}
+	else {
+		forbiddenList["buzzfeed"]=false
 	}
 }
 function loadOptions() {
-	var fb = localStorage["facebook"];
+	var fb = localStorage.getItem("facebook");
 	var tw = localStorage["twitter"];
 	var red= localStorage["reddit"];
 	var tmb= localStorage["tumblr"];
@@ -66,7 +73,8 @@ function loadOptions() {
 	var cr= localStorage["cracked"];
 	var iwsmt= localStorage["iwastesomuchtime"];
 	var pin= localStorage["pinterest"];
-	if (fb == 'true') {
+	var bzzf= localStorage["buzzfeed"];
+	if (fb == "true") {
 		document.getElementById("facebook").checked = true;
 	}
 	else {
@@ -114,6 +122,12 @@ function loadOptions() {
 	else {
 		document.getElementById("pinterest").checked = false;
 	}
+	if (bzzf == 'true') {
+		document.getElementById("buzzfeed").checked = true;
+	}
+	else {
+		document.getElementById("buzzfeed").checked = false;
+	}
 	updateList();
 }
 function saveOptions() {
@@ -125,11 +139,16 @@ function saveOptions() {
 	var cr=document.getElementById("cracked").checked;
 	var iwsmt=document.getElementById("iwastesomuchtime").checked;
 	var pin=document.getElementById("pinterest").checked;
+	var bzzf=document.getElementById("buzzfeed").checked;
 	if (fb==true){
-		localStorage["facebook"]=true;
+		chrome.storage.sync.set({facebook: "true"}, function () {
+			console.log("facebook set");
+		})
 	}
 	else {
-		localStorage["facebook"]=false;
+		chrome.storage.sync.set({facebook: "false"}, function() {
+			console.log("facebook set");
+		})
 	}
 	if (tw==true){
 		localStorage["twitter"]=true;
@@ -172,6 +191,12 @@ function saveOptions() {
 	}
 	else {
 		localStorage["pinterest"]=false;
+	}
+	if (bzzf==true) {
+		localStorage["buzzfeed"] = true;
+	}
+	else {
+		localStorage["buzzfeed"] = false;
 	}
 	updateList();
 }
