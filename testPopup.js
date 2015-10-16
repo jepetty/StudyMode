@@ -25,9 +25,6 @@ function getCurrentTabUrl(callback) {
     // from |queryInfo|), then the "tabs" permission is required to see their
     // "url" properties.
     console.assert(typeof url == 'string', 'tab.url should be a string');
-    if (url.indexOf("facebook") > -1) {
-      alert("Stop slacking OFF!")
-    }
 
     callback(url);
   });
@@ -42,19 +39,45 @@ function getCurrentTabUrl(callback) {
  */
 
 function compareURL() {
-  chrome.storage.sync.get("facebook", function(obj) {
-    var forbiddenList = [];
-    if (obj["facebook"] == "true") {
+  chrome.storage.sync.get("fL", function(obj) {
+    console.log(obj);
+    var forbiddenList=[];
+    var newObj=obj["fL"];
+    if (newObj["facebook"] == "true") {
       forbiddenList.push("facebook");
       }
-      var badurl = ""
-      for (var i=0;i<forbiddenList.length;i++) {
-        badurl = forbiddenList[i]
-        if (window.location.href.indexOf(badurl) > -1) {
-          alert("You have tried to access a forbidden site. You are now being redirected to a Judgy Rabbit. Stop slacking OFF!");
-          window.location=("http://1.bp.blogspot.com/-AKSZfnEBqrg/U1Cb_fe0jTI/AAAAAAAADmM/8giL1Zx0gBE/s1600/Lop-Eared-Pet-Rabbit.jpg")
-          }
+    if (newObj["twitter"] == "true") {
+      forbiddenList.push("twitter");
+    }
+    if (newObj["reddit"] == "true") {
+      forbiddenList.push("reddit");
+    }
+    if (newObj["tumblr"] == "true") {
+      forbiddenList.push("tumblr");
+    }
+    if (newObj["netflix"] == "true") {
+      forbiddenList.push("netflix");
+    }
+    if (newObj["cracked"] == "true") {
+      forbiddenList.push("cracked");
+    }
+    if (newObj["iwastesomuchtime"]=="true") {
+      forbiddenList.push("iwastesomuchtime");
+    }
+    if (newObj["pinterest"]=="true") {
+      forbiddenList.push("pinterest");
+    }
+    if (newObj["buzzfeed"]=="true") {
+      forbiddenList.push("buzzfeed");
+    }
+    var badurl = ""
+    for (var i=0;i<forbiddenList.length;i++) {
+      badurl = forbiddenList[i]
+      if (window.location.href.indexOf(badurl) > -1) {
+        alert("You have tried to access a forbidden site. You are now being redirected to a Judgy Rabbit. Stop slacking OFF!");
+        window.location=("http://1.bp.blogspot.com/-AKSZfnEBqrg/U1Cb_fe0jTI/AAAAAAAADmM/8giL1Zx0gBE/s1600/Lop-Eared-Pet-Rabbit.jpg")
         }
+      }
     });
 }
 compareURL();

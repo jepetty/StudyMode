@@ -37,7 +37,6 @@ function updateChromeStorage() {
 	forbiddenList["buzzfeed"]=localStorage["buzzfeed"];
 
 	chrome.storage.sync.set({fL: forbiddenList}, function() {
-		console.log(forbiddenList);
 	})
 }
 window.addEventListener('load', loadOptions);
