@@ -1,7 +1,7 @@
-var forbiddenList = [];
+var forbiddenList={facebook:"false", twitter:"false", reddit:"false", tumblr:"false", netflix:"false", cracked:"false", iwastesomuchtime:"false", pinterest:"false", buzzfeed:"false"};
 function loadOptions() {
 	document.getElementById("facebook").checked = (localStorage["facebook"]=="true");
-	document.getElementById("twitter").checked = (localStorage["facebook"]=="true");
+	document.getElementById("twitter").checked = (localStorage["twitter"]=="true");
 	document.getElementById("reddit").checked = (localStorage["reddit"]=="true");
 	document.getElementById("tumblr").checked = (localStorage["tumblr"]=="true");
 	document.getElementById("netflix").checked = (localStorage["netflix"]=="true");
@@ -9,6 +9,8 @@ function loadOptions() {
 	document.getElementById("iwastesomuchtime").checked = (localStorage["iwastesomuchtime"]=="true");
 	document.getElementById("pinterest").checked = (localStorage["pinterest"]=="true");
 	document.getElementById("buzzfeed").checked = (localStorage["buzzfeed"]=="true");
+
+	updateChromeStorage();
 }
 function saveOptions() {
 	localStorage["facebook"]=document.getElementById("facebook").checked;
@@ -20,6 +22,23 @@ function saveOptions() {
 	localStorage["iwastesomuchtime"]=document.getElementById("iwastesomuchtime").checked;
 	localStorage["pinterest"]=document.getElementById("pinterest").checked;
 	localStorage["buzzfeed"]=document.getElementById("buzzfeed").checked;
+
+	updateChromeStorage();
+}
+function updateChromeStorage() {
+	forbiddenList["facebook"]=localStorage["facebook"];
+	forbiddenList["twitter"]=localStorage["twitter"];
+	forbiddenList["reddit"]=localStorage["reddit"];
+	forbiddenList["tumblr"]=localStorage["tumblr"];
+	forbiddenList["netflix"]=localStorage["netflix"];
+	forbiddenList["cracked"]=localStorage["cracked"];
+	forbiddenList["iwastesomuchtime"]=localStorage["iwastesomuchtime"];
+	forbiddenList["pinterest"]=localStorage["pinterest"];
+	forbiddenList["buzzfeed"]=localStorage["buzzfeed"];
+
+	chrome.storage.sync.set({fL: forbiddenList}, function() {
+		console.log(forbiddenList);
+	})
 }
 window.addEventListener('load', loadOptions);
 var button=document.getElementById('save');
